@@ -23,8 +23,9 @@
 
 
 
-    <?php wp_footer(); ?>
+
     <p class="text-center text-muted">© 2022 Company, Inc</p>
+    <?php wp_footer(); ?>
 </footer>
 
 
