@@ -9,6 +9,50 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
     </style>
     <!-- Owl Corusel links -->
-
-    <?php wp_head(); ?>
 </head>
+
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav id="navbar">
+        <div class="container-fluid">
+            <div class="container">
+
+                <?php
+                if (function_exists('the_custom_logo')) {
+                    the_custom_logo();
+                }
+                ?>
+
+                <?php
+                wp_nav_menu(
+                    array(
+                        'menu' => 'primary',
+                        'container' => '',
+                        'theme_location' => 'primary',
+                        'items_wrap' => '<ul id="" class="nav-nav">%3$s</ul>'
+                    )
+                )
+                ?>
+
+                <button class="hamburger">
+                    <div class="bar"></div>
+                </button>
+
+
+                <?php
+                wp_nav_menu(
+                    array(
+                        'menu' => 'hamburger',
+                        'container' => '',
+                        'theme_location' => 'hamburger',
+                        'items_wrap' => '<ul id="" class="mobile-nav">%3$s</ul>'
+                    )
+                )
+                ?>
+
+            </div>
+        </div>
+    </nav>
+    <?php wp_head(); ?>

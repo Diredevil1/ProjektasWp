@@ -1,45 +1,8 @@
+<?php /* Template Name: Home */ ?>
+
 <?php get_header(); ?>
 
 <body>
-
-    <!-- NAVIGATION BAR -->
-    <nav id="navbar">
-        <div class="container-fluid">
-            <div class="container">
-
-
-                <div class="Logo">Šunų sportas/LOGO</div>
-
-                <?php
-                wp_nav_menu(
-                    array(
-                        'menu' => 'primary',
-                        'container' => '',
-                        'theme_location' => 'primary',
-                        'items_wrap' => '<ul id="" class="nav-nav">%3$s</ul>'
-                    )
-                )
-                ?>
-
-                <button class="hamburger">
-                    <div class="bar"></div>
-                </button>
-
-
-                <?php
-                wp_nav_menu(
-                    array(
-                        'menu' => 'hamburger',
-                        'container' => '',
-                        'theme_location' => 'hamburger',
-                        'items_wrap' => '<ul id="" class="mobile-nav">%3$s</ul>'
-                    )
-                )
-                ?>
-
-            </div>
-        </div>
-    </nav>
 
     <!---------------- NAV END ------------------->
 
@@ -97,84 +60,35 @@
         <div class="container-fluid">
             <div class="container">
                 <div class="card-group">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Post Header</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
-                                natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                    ago</small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Post Header</h5>
-                            <p class="card-text">This card has supporting text below as a natural
-                                lead-in to
-                                additional
-                                content.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                    ago</small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Post Header</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
-                                natural lead-in to
-                                additional content. This card has even longer content than the first to
-                                show
-                                that equal
-                                height action.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                    ago</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card-group">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Post Header</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
-                                natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                    ago</small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Post Header</h5>
-                            <p class="card-text">This card has supporting text below as a natural
-                                lead-in to
-                                additional
-                                content.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                    ago</small>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Post Header</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a
-                                natural lead-in to
-                                additional content. This card has even longer content than the first to
-                                show
-                                that equal
-                                height action.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                    ago</small>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    <?php
+                    $args = array(
+                        'post_type' => 'post',
+                        'posts_per_page' => 4,
+                        'facetwp' => true,
+                    );
+                    $query = new WP_Query($args);
+                    ?>
+                    <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
+
+
+                            <div class="card">
+                                <div class=" card-body">
+                                    <h5 class="card-title"><?php echo get_the_title(); ?></h5>
+                                    <p> <?php echo get_the_excerpt(); ?> </p>
+
+                                    <a href="<?php echo get_the_permalink(); ?>">Daugiau</a>
+                                </div>
+                            </div>
+
+
+
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                    <?php wp_reset_postdata(); ?>
+
+
+
 
 
     </section>
@@ -201,9 +115,8 @@
                             </div>
                             <div class="card-body">
                                 <h4>Obedience</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
+                                <p class=" card-text">Developed in the 1930s, the sport of obedience is all about fostering dogs that are well-behaved at home, in public, and in the presence of other dogs. During an obedience trial, dogs must demonstrate abilities like walking politely, staying, retrieving, and jumping, all while showing they enjoy working with their handler... <a href="obedience">More</a></p>
+
                             </div>
                         </div>
                     </div>
@@ -215,7 +128,8 @@
                                 <h4>Coursing</h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the
                                     bulk
-                                    of the card's content.</p>
+                                    of the card's content... <a href="coursing">More</a></p>
+
                             </div>
                         </div>
                     </div>
@@ -227,7 +141,8 @@
                                 <h4>Tracking</h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the
                                     bulk
-                                    of the card's content.</p>
+                                    of the card's content... <a href="tracking">More</a></p>
+
                             </div>
                         </div>
                     </div>
@@ -239,7 +154,8 @@
                                 <h4>Frisbee</h4>
                                 <p class="card-text">Some quick example text to build on the card title and make up the
                                     bulk
-                                    of the card's content.</p>
+                                    of the card's content... <a href="frisbee">More</a></p>
+
                             </div>
                         </div>
                     </div>
@@ -249,9 +165,8 @@
                             </div>
                             <div class="card-body">
                                 <h4>Agility</h4>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk
-                                    of the card's content.</p>
+                                <p class="card-text">Dog agility is a dog sport in which a handler directs a dog through an obstacle course in a race for both time and accuracy. Dogs run off leash with no food or toys as incentives, and the handler can touch neither dog nor obstacles.... <a href="agility">More</a></p>
+
                             </div>
                         </div>
                     </div>

@@ -90,6 +90,16 @@
     list-style: none;
 }
 
+.card-body h4 a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+.card-group {
+    gap: 10px;
+}
+
 .mobile-nav a {
     display: block;
     width: 100%;
@@ -117,7 +127,7 @@
     }
 }
 
-/* <<<<<<<<<<<<<<<<-Removing normal naigation!->>>>>>>>>>> */
+/* <<<<<<<<<<<<<<<<-Removing normal navigation!->>>>>>>>>>> */
 @media (max-width: 767px) {
     .nav-nav {
         display: none !important;
@@ -259,6 +269,9 @@ section .card-body {
     margin-top: 10px;
 }
 
+
+
+
 /* <<<<<<<<<<<------------------Owl carousel --------------->>>>>> */
 
 .owl-carousel .carousel-bg {
@@ -284,6 +297,8 @@ section .card-body {
 
 
 footer {
+    position: absolute;
+    width: 100%;
     border-top: solid black 1px;
     padding-top: 10px;
 }
